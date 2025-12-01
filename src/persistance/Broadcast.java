@@ -8,12 +8,14 @@ public class Broadcast {
     private Movie movie;
     private Room room;
     private LocalDateTime startTime;
+    private int freeSeats;
 
     public Broadcast(long idBroadcast, Movie movie, Room room, LocalDateTime startTime) {
         this.idBroadcast = idBroadcast;
         this.movie = movie;
         this.room = room;
         this.startTime = startTime;
+        freeSeats = room.getCapacity();
     }
 
     public long getIdBroadcast() {
@@ -22,6 +24,18 @@ public class Broadcast {
 
     public void setIdBroadcast(long idBroadcast) {
         this.idBroadcast = idBroadcast;
+    }
+
+    public int getFreeSeats() {
+        return freeSeats;
+    }
+
+    public boolean reserveSeats(int amount) {
+        if (freeSeats - amount >= 0){
+            freeSeats -= amount;
+            return true;
+        }
+        return false;
     }
 
     public Movie getMovie() {

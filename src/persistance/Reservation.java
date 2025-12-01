@@ -4,13 +4,22 @@ public class Reservation {
   private final long idReservation;
   private int amount;
   private long idBroadcast;
+  private String customerName;
 
-    public Reservation(long idReservation, int amount, long idBroadcast) {
+    public Reservation(long idReservation, int amount, long idBroadcast, String name) {
         this.idReservation = idReservation;
         this.amount = amount;
+        this.customerName = name;
         this.idBroadcast = idBroadcast;
     }
 
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
     public long getIdReservation() {
         return idReservation;
     }
